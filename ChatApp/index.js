@@ -15,6 +15,10 @@ io.on('connection', (socket) => {
 
     socket.emit('connections', Object.keys(io.sockets.connected).length);
 
+    socket.on('updateConnection', () => {
+        socket.broadcast.emit('connections', Object.keys(io.sockets.connected).length);
+    })
+
     socket.on('disconnect', () => {
         console.log("A user disconnected");
     });

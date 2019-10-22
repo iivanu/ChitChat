@@ -127,6 +127,8 @@
             socket.on('connections', (data) => {
                 this.connections = data;
             });
+
+            socket.emit('updateConnection');
         },
 
         watch: {
