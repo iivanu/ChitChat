@@ -13,13 +13,15 @@ http.listen(3000, () => {
 
 io.on('connection', (socket) => {
 
-    socket.emit('connections', Object.keys(io.sockets.connected).length);
+    io.emit('connections', Object.keys(io.sockets.connected).length);
 
     socket.on('updateConnection', () => {
-        socket.broadcast.emit('connections', Object.keys(io.sockets.connected).length);
+        io.emit('connections', Object.keys(io.sockets.connected).length);
+        console.log("A user connected");
     })
 
     socket.on('disconnect', () => {
+        io.emit('connections', Object.keys(io.sockets.connected).length);
         console.log("A user disconnected");
     });
 
