@@ -13,8 +13,6 @@ http.listen(3000, () => {
 
 io.on('connection', (socket) => {
 
-    io.emit('connections', Object.keys(io.sockets.connected).length);
-
     socket.on('updateConnection', () => {
         io.emit('connections', Object.keys(io.sockets.connected).length);
         console.log("A user connected");
