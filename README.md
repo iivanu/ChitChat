@@ -2,6 +2,10 @@
 
 ```bash
 # Install dependencies
+cd server
+npm install
+
+cd client 
 npm install
 
 # Start Express Server: http://localhost:3000
