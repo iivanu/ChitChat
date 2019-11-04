@@ -1,7 +1,7 @@
 <template>
     <div class="users-list">
         <p>Users: {{users.length}}</p>
-        <div v-bind:key="user.id" v-for="user in users">
+        <div v-for="user in users" v-bind:key="user.id">
             <UserListItem v-bind:user="user"/>
         </div>
     </div>

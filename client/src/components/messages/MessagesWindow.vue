@@ -1,6 +1,6 @@
 <template>
   <div class="messages-window">
-    <div v-bind:key="message.id" v-for="message in messages">
+    <div v-for="message in messages" v-bind:key="message.id">
       <MessageBox v-bind:message="message" />
     </div>
   </div>

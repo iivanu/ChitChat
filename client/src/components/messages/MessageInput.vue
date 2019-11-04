@@ -38,6 +38,8 @@ export default {
         type: 0
       };
       this.$emit("send-message", newMessage);
+
+      this.messageContent = "";
     }
   }
 };

@@ -28,7 +28,6 @@ export default {
 
   methods: {
     sendMessage(newMessage) {
-      newMessage.username = this.username;
       this.messages.push(newMessage);
       // TODO: send to socket
     }
