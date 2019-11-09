@@ -1,7 +1,7 @@
 <template>
     <div class="users-list">
         <p style="font-size:20px">Users: {{users.length}}</p>
-        <div v-for="user in users" v-bind:key="user.id">
+        <div align="center" v-for="user in users" v-bind:key="user.id">
             <UserListItem v-bind:user="user"/>
         </div>
     </div>
@@ -27,6 +27,7 @@ export default {
   padding: 8px;
   border-radius: 7px;
   float: right;
-  width: 20%;
+  margin-right: 50px;
+  width: 13rem;
 }
 </style>
