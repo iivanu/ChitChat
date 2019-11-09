@@ -22,7 +22,8 @@ export default {
     return {
       username: "username",
       messages: [],
-      users: []
+      //Hardcoded test values for userList item
+      users: [{username:"Kate"}, {username:"Mirko"}, {username:"Gacelele"}, {username:"Matino"}, {username:"Zubi"}, {username:"Lignja"}]
     };
   },
 

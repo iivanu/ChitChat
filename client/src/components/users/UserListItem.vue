@@ -12,4 +12,11 @@ export default {
 </script>
 
 <style scoped>
+    .user-item{
+        text-align: center;
+        border: 1px solid #2c3e50;
+        border-radius: 7px;
+        background-color: #2c3e50;
+        margin-top: 5px;
+    }
 </style>
