@@ -29,5 +29,7 @@ export default {
   float: right;
   margin-right: 50px;
   width: 13rem;
+  height: 20rem;
+  overflow-y: scroll;
 }
 </style>
