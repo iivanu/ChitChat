@@ -29,7 +29,7 @@ export default {
   border-bottom-left-radius: 7px;
   position: absolute;
   right: 50px;
-  width: 13rem
+  width: 13rem;
   height: 25rem;
   border-left: 1px solid #2c3e50;
   border-top: 1px solid #2c3e50;
