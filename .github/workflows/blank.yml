@@ -1,0 +1,19 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Npm install
+      run: |
+        cd client
+        npm install
+    - name: Build client
+      run: |
+        cd client
+        cpm run build
