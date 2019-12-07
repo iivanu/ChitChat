@@ -22,14 +22,19 @@ export default {
 
 <style scoped>
 .users-list {
-  color: white;
-  background-color: #42b883;
+  color: #2c3e50;
+  background-color: #2DD298;
   padding: 8px;
-  border-radius: 7px;
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
   position: absolute;
   right: 50px;
-  width: 13rem;
+  width: 13rem
   height: 25rem;
+  border-left: 1px solid #2c3e50;
+  border-top: 1px solid #2c3e50;
+  border-bottom: 1px solid #2c3e50;
+
   overflow-y: scroll;
 }
 </style>

@@ -1,7 +1,6 @@
 <template>
     <div class="user-item">
         <p>{{user.username}}</p>
-        <hr>
     </div>
 </template>
 
@@ -13,22 +12,21 @@ export default {
 </script>
 
 <style scoped>
-    .user-item{
+    .user-item {
         text-align: center;
-        border: 1px solid #2c3e50;
-        /*border-radius: 7px;*/
         background-color: #2c3e50;
-        /*margin-top: 5px;*/
         width: 100%;
-        height: auto;
+        display: flex;
+        flex-direction: column;
+        height: 1.5rem;
+        border-top: 1px solid transparent;
+        border-radius: 8px;
+        margin-bottom: 1.5px;
     }
 
-    hr {
-        width: 100%;
-        height: 2px;
-        margin-left: auto;
-        margin-right: auto;
-        background-color:#6995c2;
-        border: 0 none;
+    p {
+        margin: 0px auto;
+        margin-top: 3px;
+        color: white;
     }
 </style>
