@@ -8,6 +8,8 @@ const app = express()
 app.use(bodyParser.json())
 app.use(cors())
 
+app.use(express.urlencoded({ extended: false }))
+
 require('./routes')(app)
 require('./config/passport')(passport)
 
