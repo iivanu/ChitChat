@@ -28,7 +28,7 @@ module.exports = {
       return res.status(400).send({ error: 'Passwords do not match' })
     }
 
-    User.findOne({ username: username }).then(user => {
+    User.findOne({$or: [{ username: username }, { email: email }]}).then(user => {
       if (user) {
         if (user.email === email && user.username === username) {
           return res.status(400).send({ error: 'Username and email already exist' })
@@ -73,7 +73,7 @@ module.exports = {
       return res.status(400).send({ error: 'Password must be at least 6 characters' })
     }
 
-    User.findOne({ username: username }).then(user => {
+    User.findOne({$or: [{ username: username }, { email: email }]}).then(user => {
       if (!user || user.guest == true) {
         return res.status(403).send({ error: 'The login information is incorrect' })
       }
