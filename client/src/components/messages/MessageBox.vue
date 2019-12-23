@@ -1,5 +1,5 @@
 <template>
-  <div class="message-box" :style="cssVars" v-bind:class="{'own-message':message.type === 0}">
+  <div class="message-box" v-bind:style="{ backgroundColor: message.color}" v-bind:class="{'own-message':message.type === 0}">
     <em v-if="message.type === 1">{{message.username}}</em> 
     <p>{{message.content}}</p>
     <label>{{message.timestamp}}</label>
@@ -9,73 +9,63 @@
 
 <script>
 export default {
-  //test: /\.s[a|c]ss$/,
-  //loader: 'sass-loader',
   name: "MessageBox",
   props: ["message"],
-    /*computed:{
-    cssVars() {
-        return {
-          '--bg-color': this.color
-        }
-      }
-    },*/
 };
-
 </script>
 
 <style scoped> 
 
-.message-box.own-message{
-  background-color:PaleTurquoise;
-  display: inline-block;
-  justify-content:center;
+.message-box.own-message {
+  background-color: PaleTurquoise !important; 
+  justify-content: center;
   border-radius: 15px;
-  margin: 4px ;
-  padding:7px 10px;
-  border: 1px ;
-  width:auto;
-  max-width:500px;
-  float:right;
-  clear:both;
+  margin: 4px;
+  padding: 5px 10px;
+  border: 1px solid lightgray;
+  width: auto;
+  max-width: 60%;
+  float: right;
+  clear: both;
 }
 
-.message-box{
-  /*background-color: var(--bg-color);*/
+.message-box {
   background-color: lavender;
-  display: inline-block;
-  justify-content:center;
+  justify-content: center;
   border-radius: 15px;
-  margin: 4px ;
-  padding:7px 10px;
-  border: 1px ;
-  width:auto;
-  max-width:500px;
-  float:left;
-  clear:both;
+  margin: 4px;
+  padding: 5px 10px;
+  border: 1px solid lightgray;
+  width: auto;
+  max-width: 60%;
+  float: left;
+  clear: both;
 }
 
 em {
-  color: black;
-  font-weight:bold;
+  color:black;
+  font-weight: bold;
   text-align: left;
-  display:block;
+  display: block;
+  font-size: 0.6em;
 }
 
 p {
   color: black;
   text-align: justify;
-  word-break:break-all;
+  word-break: break-all;
   padding: 2px;
-  margin-top:2px;
-  margin-bottom:4px;
+  margin-top: 2px;
+  margin-bottom: 4px;
+  font-size: 0.8em;
 }
 
 label{
-  float:right;
+  float: right;
   color:grey;
-
+  font-size: 0.5em;
 }
+
 .own-message {
   text-align: right;
 }

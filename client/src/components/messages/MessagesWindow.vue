@@ -19,17 +19,36 @@ export default {
 
 </script>
 
-<style>
-
+<style scoped>
 .messages-window {
+  background-color: transparent;
+  box-sizing: border-box;
+  width: 100%;
+  overflow-y: scroll;
+  border-width: 1px black;
+  padding: 6px;
+}
 
-  width: 905px;
-  height:750px;
-  max-height:750px;
-  overflow-y:scroll;
-  background:white;
-  border-width:1px black;
-  margin:0px auto;
-  padding:6px;
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #999;
+  border-radius: 6px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #004a0a; 
+  border-radius: 6px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #346b3c; 
 }
 </style>
