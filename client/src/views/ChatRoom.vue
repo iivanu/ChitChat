@@ -1,7 +1,9 @@
 <template>
   <div class="container">
     <div class="messages-container">
-      <MessagesWindow class="messages-window" v-bind:messages="messages" v-chat-scroll />
+      <div class="message-window-container">
+        <MessagesWindow class="messages-window" v-bind:messages="messages" v-chat-scroll />
+      </div>
       <MessageInput class="message-input" v-on:send-message="sendMessage" v-bind:user="user"/>
     </div>
     <UsersList class="users-list" v-bind:users="users" />
@@ -50,16 +52,22 @@ export default {
   width: 75%;
 	display: flex;
 	flex-direction: column;
-  background-color: #f5f5f5;
-  border-radius: 10px;
-  border: solid gray 1px;
-  padding: 3px 5px 5px 5px;
 }
 
 .messages-window {
+  height: 100%;
+  width: 100%;
+}
+
+.message-window-container {
 	display: flex;
 	flex-direction: column;
   flex: 1;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  border: solid gray 1px;
+  padding: 2px 4px;
+  overflow-y: hidden;
 }
 
 .message-input {
