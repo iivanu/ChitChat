@@ -1,7 +1,7 @@
 <template>
   <div>
-    <MessagesWindow class="messages-window" v-bind:messages="messages" />
-    <MessageInput class="message-input" v-on:send-message="sendMessage" v-bind:username="username" />
+    <MessagesWindow class="messages-window" v-bind:messages="messages"  v-chat-scroll />
+    <MessageInput class="message-input" v-on:send-message="sendMessage" v-bind:username="username"/>
     <UsersList class="users-list" v-bind:users="users" />
   </div>
 </template>

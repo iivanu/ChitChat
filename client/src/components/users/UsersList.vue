@@ -23,6 +23,6 @@ export default {
 .users-list {
   float: right;
   width: 20%;
-  background: lightblue;
+  background:Lavender;
 }
 </style>
