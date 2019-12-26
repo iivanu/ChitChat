@@ -2,7 +2,7 @@
   <div class="container">
     <div class="messages-container">
       <div class="message-window-container">
-        <MessagesWindow class="messages-window" v-bind:messages="messages" v-chat-scroll />
+        <MessagesWindow class="messages-window" v-bind:messages="messages" v-chat-scroll="{always: false, smooth: true}"/>
       </div>
       <MessageInput class="message-input" v-on:send-message="sendMessage" v-bind:user="user"/>
     </div>
@@ -22,6 +22,7 @@ export default {
     MessageInput,
     UsersList
   },
+
   data() {
     return {
       user: {

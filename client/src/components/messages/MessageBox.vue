@@ -63,7 +63,7 @@ p {
 label{
   float: right;
   color:grey;
-  font-size: 0.8em;
+  font-size: 0.6em;
 }
 
 .own-message {
