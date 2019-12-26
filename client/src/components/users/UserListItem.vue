@@ -12,21 +12,21 @@ export default {
 </script>
 
 <style scoped>
-    .user-item {
-        text-align: center;
-        background-color: #2c3e50;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        height: 1.5rem;
-        border-top: 1px solid transparent;
-        border-radius: 8px;
-        margin-bottom: 1.5px;
-    }
+.user-item {
+    text-align: center;
+    background-color: #2c3e50;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    height: 1.5rem;
+    border-top: 1px solid transparent;
+    border-radius: 6px;
+    margin: 1px;
+}
 
-    p {
-        margin: 0px auto;
-        margin-top: 3px;
-        color: white;
-    }
+ p {
+    margin: 0px auto;
+    margin-top: 3px;
+    color: white;
+}
 </style>

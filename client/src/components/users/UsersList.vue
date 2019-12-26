@@ -1,10 +1,12 @@
 <template>
+  <div class="container">
     <div class="users-list">
         <p style="font-size:20px">Users: {{users.length}}</p>
         <div align="center" v-for="user in users" v-bind:key="user.id">
             <UserListItem v-bind:user="user"/>
         </div>
     </div>
+  </div>
 </template>
 
 <script>
@@ -21,20 +23,38 @@ export default {
 </script>
 
 <style scoped>
+.container {
+  overflow-y: hidden;
+}
+
 .users-list {
+  box-sizing: border-box;
   color: #2c3e50;
   background-color: #2DD298;
-  padding: 8px;
-  border-top-left-radius: 7px;
-  border-bottom-left-radius: 7px;
-  position: absolute;
-  right: 50px;
-  width: 13rem;
-  height: 25rem;
-  border-left: 1px solid #2c3e50;
-  border-top: 1px solid #2c3e50;
-  border-bottom: 1px solid #2c3e50;
-
   overflow-y: scroll;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #D3D3D3; 
+  border-radius: 6px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #808080; 
+  border-radius: 6px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #999999; 
 }
 </style>
