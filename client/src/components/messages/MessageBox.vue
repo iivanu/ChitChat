@@ -17,12 +17,12 @@ export default {
 <style scoped> 
 
 .message-box.own-message {
-  background-color: PaleTurquoise !important; 
+  background-color: lavender !important; 
   justify-content: center;
   border-radius: 15px;
   margin: 4px;
   padding: 5px 10px;
-  border: 1px solid lightgray;
+  border: 0.5px solid 	#DCDCDC;
   width: auto;
   max-width: 60%;
   float: right;
@@ -57,13 +57,13 @@ p {
   padding: 2px;
   margin-top: 2px;
   margin-bottom: 4px;
-  font-size: 0.8em;
+  font-size: 1em;
 }
 
 label{
   float: right;
   color:grey;
-  font-size: 0.5em;
+  font-size: 0.8em;
 }
 
 .own-message {

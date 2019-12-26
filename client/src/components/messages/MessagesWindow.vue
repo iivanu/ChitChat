@@ -25,7 +25,8 @@ export default {
   box-sizing: border-box;
   width: 100%;
   overflow-y: scroll;
-  border-width: 1px black;
+  border-width: 0.2px;
+  border-color: black;
   padding: 6px;
 }
 
@@ -37,18 +38,18 @@ export default {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #999;
+  background: #D3D3D3;
   border-radius: 6px;
 }
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #004a0a; 
+  background: #808080; 
   border-radius: 6px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #346b3c; 
+  background: #999999; 
 }
 </style>
