@@ -1,14 +1,14 @@
 <template>
-  <div class="message-input">
-    <form v-on:submit.prevent="sendMessage" autocomplete="off">
+  <div class="message-container">
+    <form v-on:submit.prevent="sendMessage" autocomplete="off" class="form-inline">
       <input
         id="message-field"
         type="text"
         class="form-control"
         v-model="messageContent"
-        placeholder="Enter message here"
+        placeholder="Type your message here..."
       />
-      <input type="submit" value="Send" id="send-button" />
+      <button class="btn" id="send-button" type="submit">Send</button>
     </form>
   </div>
 </template>
@@ -17,45 +17,78 @@
 import uuid from "uuid";
 export default {
   name: "MessageInput",
-  props: ["username"],
+  props: ["user"],
 
   data() {
-    return {
+    return { 
       messageContent: ""
     };
   },
 
   methods: {
     sendMessage() {
+      if (this.messageContent.trim() == '') {
+        return
+      }
       const inputField = document.getElementById("message-field");
       inputField.value = "";
       inputField.focus();
 
+      const today = new Date();
+      const h = (today.getHours() < 10 ? '0' : '') + today.getHours();
+      const m = (today.getMinutes() < 10 ? '0' : '') + today.getMinutes();
+      const time = h + ':' + m;
+
       const newMessage = {
         id: uuid.v4(),
+        type: 0,
+        username: this.user.username,
         content: this.messageContent,
-        username: this.username,
-        type: 0
+        timestamp: time,
+        color: this.user.color
       };
       this.$emit("send-message", newMessage);
 
       this.messageContent = "";
     }
-  }
+  },
+  
 };
 </script>
 
-<style>
+<style scoped>
+.message-container {
+  box-sizing: border-box;
+  align-content: center;
+  width: 100%;
+  margin: 3px 0px;
+}
+
 #message-field {
-  width: 89%;
+  box-sizing: border-box;
+  width: 90%;
+  height: 44px;
+  border-radius: 5px;
+  border: solid gray 1px;
+  border-radius: 10px 0px 0px 10px;
+  padding: 6px;
 }
 
 #send-button {
   width: 10%;
+  height: 44px;
+  background-color: Lavender;
+  border-radius: 0px 10px 10px 0px;
+  border: solid gray 1px;
 }
 
-.message-input {
-  float: left;
-  width: 70%;
+:focus { 
+  outline: none; 
+}
+
+.form-inline {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
 }
 </style>
