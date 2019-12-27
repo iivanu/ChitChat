@@ -41,7 +41,7 @@ export default {
 
       const newMessage = {
         id: uuid.v4(),
-        type: 1,
+        type: 0,
         username: this.user.username,
         content: this.messageContent,
         timestamp: time,
@@ -57,11 +57,18 @@ export default {
 </script>
 
 <style scoped>
+.message-container {
+  box-sizing: border-box;
+  align-content: center;
+  width: 100%;
+  margin: 3px 0px;
+}
+
 #message-field {
   box-sizing: border-box;
   width: 90%;
   height: 44px;
-  border-radius: 10px;
+  border-radius: 5px;
   border: solid gray 1px;
   border-radius: 10px 0px 0px 10px;
   padding: 6px;
@@ -73,13 +80,6 @@ export default {
   background-color: Lavender;
   border-radius: 0px 10px 10px 0px;
   border: solid gray 1px;
-}
-
-.message-container {
-  box-sizing: border-box;
-  align-content: center;
-  width: 100%;
-  margin: 3px 0px;
 }
 
 :focus { 

@@ -15,14 +15,13 @@ export default {
 </script>
 
 <style scoped> 
-
 .message-box.own-message {
   background-color: lavender !important; 
   justify-content: center;
   border-radius: 15px;
   margin: 4px;
   padding: 5px 10px;
-  border: 0.5px solid 	#DCDCDC;
+  border: 0.5px solid #DCDCDC;
   width: auto;
   max-width: 60%;
   float: right;

@@ -1,6 +1,8 @@
 <template>
-  <div class="messages-window">
-    <MessageBox v-for="message in messages" v-bind:key="message.id" v-bind:message="message" />
+  <div class="container">
+    <div class="messages-window" v-chat-scroll="{always: false, smooth: true}">
+      <MessageBox v-for="message in messages" v-bind:key="message.id" v-bind:message="message" />
+    </div>
   </div>
 </template>
 
@@ -18,14 +20,19 @@ export default {
 </script>
 
 <style scoped>
+.container {
+  overflow-y: hidden;
+}
+
 .messages-window {
-  background-color: transparent;
+  background-color: #f5f5f5;  
   box-sizing: border-box;
   width: 100%;
   overflow-y: scroll;
   border-width: 0.2px;
   border-color: black;
   padding: 6px;
+  overflow-y: scroll;
 }
 
 /* width */
