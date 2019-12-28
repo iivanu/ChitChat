@@ -1,10 +1,10 @@
 <template>
   <div class="container">
     <div class="messages-container">
-      <MessagesWindow class="messages-window" v-bind:messages="messages"/>
-      <MessageInput class="message-input" v-on:send-message="sendMessage" v-bind:user="user"/>
+      <MessagesWindow class="messages-window" v-bind:messages="messages" />
+      <MessageInput class="message-input" v-on:send-message="sendMessage" v-bind:user="user" />
     </div>
-      <UsersList class="users-list" v-bind:users="users"/>
+    <UsersList class="users-list" v-bind:users="users" />
   </div>
 </template>
 
@@ -36,8 +36,22 @@ export default {
   methods: {
     sendMessage(newMessage) {
       this.messages.push(newMessage);
-      // TODO: send to socket
+      this.$socket.emit('sendMessage', newMessage)
     }
+  },
+
+  sockets: {
+    connect() {
+      console.log('user connected') // eslint-disable-line no-console
+    },
+
+    disconnect() {
+      console.log('user disconnected') // eslint-disable-line no-console
+    },
+
+    newMessage(message) {
+      this.messages.push(message)
+    },
   },
 
   created() {}
@@ -66,15 +80,15 @@ export default {
 }
 
 .message-input {
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
   height: 44px;
 }
 
 .users-list {
   flex: 0.2;
   margin: 0 auto;
-  
+
   border: 1px solid #2c3e50;
   padding: 2px 4px;
   overflow-y: hidden;
@@ -84,7 +98,7 @@ export default {
 
 .container {
   height: calc(100vh - 155px);
-	display: flex;
+  display: flex;
   box-sizing: border-box;
 }
 </style>
