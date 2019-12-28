@@ -6,6 +6,10 @@
 </template>
 
 <script>
+import Vue from 'vue'
+import VueChatScroll from 'vue-chat-scroll'
+Vue.use(VueChatScroll)
+
 import Header from "./components/layout/Header.vue"
 export default {
   name: "app",
