@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Login from '../views/Login.vue'
+import Login from '../components/login/LoginContainer.vue'
 import ChatRoom from '../views/ChatRoom.vue'
 import RoomChooser from '../views/RoomChooser.vue'
 
