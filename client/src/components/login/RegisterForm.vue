@@ -7,29 +7,28 @@
       <input type="text" name="Username" placeholder="Username" />
       <br />
       <br />
+      <i class="glyphicon glyphicon-info-sign"></i>
+      <input type="password" name="Password" placeholder="Password" />
+      <br />
+      <br />
+      <i class="glyphicon glyphicon-envelope"></i>
+      <input type="email" name="Email" placeholder="Email" />
+      <br />
+      <br />
+      <button id="registerb">Register</button>
+      <br />
       <br />
     </form>
-    <button id="loginb">Login</button>
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
   </div>
 </template>
 
 <script>
 export default {
-  name: "GuestLogin"
+  name: "RegisterForm"
 };
 </script>
 
 <style scoped>
-.textfields {
-  padding: 5px;
-}
-
 input {
   text-align: left;
   padding: 5px 85px 5px 7px;
@@ -45,7 +44,7 @@ i {
   transform: scale(1.25);
 }
 
-#loginb {
+#registerb {
   padding: 8px 70px 8px 7px;
   cursor: pointer;
   background-color: white;
@@ -53,10 +52,10 @@ i {
   border: 0;
   font-weight: bold;
   font-family: "Montserrat", sans-serif;
-  text-indent: 78%;
+  text-indent: 50%;
 }
 
-#loginb:hover {
+#registerb:hover {
   opacity: 0.7;
 }
 </style>
