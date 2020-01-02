@@ -26,4 +26,4 @@ class SocketUsers {
   }
 }
 
-module.exports = { SocketUsers };
+module.exports = { SocketUsers }
