@@ -10,6 +10,7 @@ module.exports = (io) => {
       socketUsers.addUser(socket.id, user, room.id)
 
       io.to(room.id).emit('updateUserList', socketUsers.getUserList(room.id))
+      console.log(socketUsers.getUserList(room.id))
     })
 
     socket.on('disconnect', () => {
@@ -17,6 +18,11 @@ module.exports = (io) => {
       if (user) {
         io.to(user.roomId).emit('updateUserList', socketUsers.getUserList(user.roomId))
       }
+      socket.disconnect()
+    })
+
+    socket.on('forceDisconnect', () => {
+      socket.disconnect()
     })
 
     socket.on('sendMessage', (message, roomId) => {

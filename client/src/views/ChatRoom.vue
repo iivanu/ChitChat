@@ -12,6 +12,7 @@
 import MessagesWindow from "../components/messages/MessagesWindow.vue";
 import MessageInput from "../components/messages/MessageInput.vue";
 import UsersList from "../components/users/UsersList.vue";
+import io from "socket.io-client"
 
 export default {
   name: "ChatRoom",
@@ -23,6 +24,7 @@ export default {
 
   data() {
     return {
+      socket: {},
       // Hardcoded test values
       user: {
         username: "testUsername",
@@ -40,38 +42,36 @@ export default {
   methods: {
     sendMessage(newMessage) {
       this.messages.push(newMessage);
-      this.$socket.emit("sendMessage", newMessage, this.room.id);
-    }
-  },
-
-  sockets: {
-    connect() {
-      console.log("JOINED"); // eslint-disable-line no-console
-      this.$socket.emit("joined", this.room, this.user);
-    },
-
-    disconnect() {
-      console.log("disconnected from server"); // eslint-disable-line no-console
-    },
-
-    newMessage(message) {
-      this.messages.push(message);
-    },
-
-    updateUserList(users) {
-      this.users = users;
+      this.socket.emit("sendMessage", newMessage, this.room.id);
     }
   },
 
   created() {
-    if (!localStorage.getItem("reloaded")) {
-      localStorage.setItem("reloaded", "1");
-      location.reload();
-    }
+    console.log("CREATED") // eslint-disable-line no-console
+    this.socket = io('http://localhost:3000/')
+  },
+
+  mounted() {
+    this.socket.on('connect', () => {
+      console.log("JOINED") // eslint-disable-line no-console
+      this.socket.emit("joined", this.room, this.user)
+    })
+
+    this.socket.on('disconnect', () => {
+      console.log("disconnected from server") // eslint-disable-line no-console
+    })
+
+    this.socket.on('newMessage', (message) => {
+      this.messages.push(message)
+    })
+
+    this.socket.on('updateUserList', (users) => {
+      this.users = users
+    })
   },
 
   destroyed() {
-    localStorage.removeItem("reloaded");
+    this.socket.emit('forceDisconnect')
   }
 };
 </script>
