@@ -40,26 +40,38 @@ export default {
   methods: {
     sendMessage(newMessage) {
       this.messages.push(newMessage);
-      this.$socket.emit('sendMessage', newMessage, this.room.id)
+      this.$socket.emit("sendMessage", newMessage, this.room.id);
     }
   },
 
   sockets: {
     connect() {
-      this.$socket.emit('joined', this.room, this.user)
+      console.log("JOINED"); // eslint-disable-line no-console
+      this.$socket.emit("joined", this.room, this.user);
     },
 
     disconnect() {
-      console.log('disconnected from server') // eslint-disable-line no-console
+      console.log("disconnected from server"); // eslint-disable-line no-console
     },
 
     newMessage(message) {
-      this.messages.push(message)
+      this.messages.push(message);
     },
 
     updateUserList(users) {
-      this.users = users
+      this.users = users;
     }
+  },
+
+  created() {
+    if (!localStorage.getItem("reloaded")) {
+      localStorage.setItem("reloaded", "1");
+      location.reload();
+    }
+  },
+
+  destroyed() {
+    localStorage.removeItem("reloaded");
   }
 };
 </script>
