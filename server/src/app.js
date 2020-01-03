@@ -14,6 +14,9 @@ app.use(passport.session())
 
 require('./routes')(app)
 require('./config/passport')(passport)
+const server = require('http').Server(app)
+const io = require('socket.io')(server)
+require('./controllers/SocketController')(io)
 
 const database = keys.mongoURI
 mongoose
@@ -25,6 +28,6 @@ mongoose
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.log("Error connecting to database: " + err))
 
-app.listen(keys.port, () => console.log(`Server started on port ${keys.port}`))
+server.listen(keys.port, () => console.log(`Server started on port ${keys.port}`))
 
 
