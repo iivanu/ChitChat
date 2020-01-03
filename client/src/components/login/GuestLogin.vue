@@ -4,12 +4,12 @@
       <br />
       <br />
       <i class="glyphicon glyphicon-user"></i>
-      <input type="text" name="Username" placeholder="Username" />
+      <input type="text" name="Username" placeholder="Username" v-model="username"/>
       <br />
       <br />
       <br />
     </form>
-    <button id="loginb">Login</button>
+    <button id="loginb" v-on:click="login()">Login</button>
     <br />
     <br />
     <br />
@@ -20,8 +20,36 @@
 </template>
 
 <script>
+import AuthenticationService from "../../services/AuthenticationService";
+
 export default {
-  name: "GuestLogin"
+  name: "GuestLogin",
+
+  data() {
+    return {
+      username: ""
+    };
+  },
+
+  methods: {
+    async login() {
+      try {
+        const response = await AuthenticationService.login({
+          username: this.username,
+          guest: true
+        });
+        this.$store.dispatch('setUser', response.data.user)
+        this.$store.dispatch('setToken', response.data.token)
+        this.$router.push({
+          name: "chatroom"
+        });
+        console.log('SUCCESS')
+      } catch (error) {
+        console.log(error)
+        this.error = error.response.data.error;
+      }
+    }
+  }
 };
 </script>
 

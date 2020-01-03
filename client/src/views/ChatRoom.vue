@@ -24,10 +24,7 @@ export default {
   data() {
     return {
       // Hardcoded test values
-      user: {
-        username: "testUsername",
-        color: "#fff1f1"
-      },
+      user: this.$store.state.user,
       messages: [{username: "Lignja", content: "alo ekipa", timestamp: "10:32", type: 1, color: "#fffff1"}, {username: "Vucica", content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", timestamp: "10:33", type: 1, color: "#fff1f1"}, {username: "Mirko", content: "Ullamcorper morbi tincidunt ornare massa. Pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus. Integer enim neque volutpat ac tincidunt vitae. Penatibus et magnis dis parturient montes nascetur ridiculus mus mauris. Sed viverra ipsum nunc aliquet bibendum. Id venenatis a condimentum vitae sapien. Velit dignissim sodales ut eu sem integer vitae justo eget. Tortor posuere ac ut consequat semper viverra nam libero.", timestamp: "10:34", type: 0, color: "#f1f1ff"}, {username: "gacina matino matan", content: "mi smo braca svi", timestamp: "10:35", type: 1, color: "#f1fff1"}],
       users: [{username:"Kate"}, {username:"Mirko"}, {username:"Gacelele"}, {username:"Matino"}, {username:"Zubi"}, {username:"Lignja"},{username:"Kate"}, {username:"Mirko"}, {username:"Gacelele"}, {username:"Matino"}, {username:"Zubi"}, {username:"Lignja"},{username:"Kate"}, {username:"Mirko"}, {username:"Gacelele"}, {username:"Matino"}, {username:"Zubi"}, {username:"Lignja"}]
     };
