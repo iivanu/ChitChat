@@ -1,5 +1,5 @@
 <template>
-    <div class="user-item">
+    <div class="user-item" v-bind:class="{'own-item':$store.state.user.username === user.username}">
         <p>{{user.username}}</p>
     </div>
 </template>
@@ -22,6 +22,10 @@ export default {
     border-top: 1px solid transparent;
     border-radius: 6px;
     margin: 1px;
+}
+
+.own-item {
+    background-color: #596c80
 }
 
  p {
