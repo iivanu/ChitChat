@@ -18,6 +18,10 @@ const UserSchema = new mongoose.Schema({
   guest: {
     type: Boolean,
     default: true
+  },
+  admin: {
+    type: Boolean,
+    default: false
   }
 })
 
