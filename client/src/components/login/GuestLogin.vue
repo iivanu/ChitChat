@@ -43,10 +43,8 @@ export default {
         this.$router.push({
           name: "chatroom"
         });
-        console.log('SUCCESS')
       } catch (error) {
-        console.log(error)
-        this.error = error.response.data.error;
+        alert(error.response.data.error);
       }
     }
   }
