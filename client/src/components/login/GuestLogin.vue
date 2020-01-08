@@ -4,7 +4,11 @@
       <br />
       <br />
       <i class="glyphicon glyphicon-user"></i>
+<<<<<<< Updated upstream
       <input type="text" name="Username" placeholder="Username" />
+=======
+      <input type="text" name="Username" placeholder="Username" v-model="username" />
+>>>>>>> Stashed changes
       <br />
       <br />
       <br />
@@ -20,8 +24,41 @@
 </template>
 
 <script>
+<<<<<<< Updated upstream
 export default {
   name: "GuestLogin"
+=======
+import AuthenticationService from "../../services/AuthenticationService.js";
+
+export default {
+  name: "GuestLogin",
+
+  data() {
+    return {
+      username: ""
+    };
+  },
+
+  methods: {
+    async login() {
+      try {
+        const response = await AuthenticationService.login({
+          username: this.username,
+          guest: true
+        });
+        this.$store.dispatch("setUser", response.data.user);
+        this.$store.dispatch("setToken", response.data.token);
+        this.$router.push({
+          name: "chatroom"
+        });
+        console.log("SUCCESS");
+      } catch (error) {
+        console.log(error);
+        this.error = error.response.data.error;
+      }
+    }
+  }
+>>>>>>> Stashed changes
 };
 </script>
 
