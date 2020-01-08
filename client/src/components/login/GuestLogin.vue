@@ -9,7 +9,7 @@
       <br />
       <br />
     </form>
-    <button id="loginb">Login</button>
+    <button id="loginb" v-on:click="login()">Login</button>
     <br />
     <br />
     <br />
@@ -38,15 +38,13 @@ export default {
           username: this.username,
           guest: true
         });
-        this.$store.dispatch("setUser", response.data.user);
-        this.$store.dispatch("setToken", response.data.token);
+        this.$store.dispatch('setUser', response.data.user)
+        this.$store.dispatch('setToken', response.data.token)
         this.$router.push({
           name: "chatroom"
         });
-        console.log("SUCCESS");
       } catch (error) {
-        console.log(error);
-        this.error = error.response.data.error;
+        alert(error.response.data.error);
       }
     }
   }
