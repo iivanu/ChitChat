@@ -4,11 +4,7 @@
       <br />
       <br />
       <i class="glyphicon glyphicon-user"></i>
-<<<<<<< Updated upstream
-      <input type="text" name="Username" placeholder="Username" />
-=======
       <input type="text" name="Username" placeholder="Username" v-model="username" />
->>>>>>> Stashed changes
       <br />
       <br />
       <br />
@@ -24,10 +20,6 @@
 </template>
 
 <script>
-<<<<<<< Updated upstream
-export default {
-  name: "GuestLogin"
-=======
 import AuthenticationService from "../../services/AuthenticationService.js";
 
 export default {
@@ -58,7 +50,6 @@ export default {
       }
     }
   }
->>>>>>> Stashed changes
 };
 </script>
 
