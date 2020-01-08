@@ -16,17 +16,17 @@ User.prototype.comparePassword = function (password) {
 
 module.exports = {
   register(req, res) {
-    const { username, email, password, password2 } = req.body
-
-    if (!username || !email || !password || !password2) {
+    const { username, email, password /*, password2 */} = req.body
+    console.log(username, email, password);
+    if (!username || !email || !password /*|| !password2*/) {
       return res.status(400).send({ error: 'Please enter all fields' })
     }
     if (password.length < 6) {
       return res.status(400).send({ error: 'Password must be at least 6 characters' })
     }
-    if (password != password2) {
+    /*if (password != password2) {
       return res.status(400).send({ error: 'Passwords do not match' })
-    }
+    }*/
 
     User.findOne({$or: [{ username: username }, { email: email }]}).then(user => {
       if (user) {
@@ -73,7 +73,7 @@ module.exports = {
       return res.status(400).send({ error: 'Password must be at least 6 characters' })
     }
 
-    User.findOne({$or: [{ username: username }, { email: email }]}).then(user => {
+    User.findOne({$or: [{ username: username }, { email: username }]}).then(user => {
       if (!user || user.guest == true) {
         return res.status(403).send({ error: 'The login information is incorrect' })
       }

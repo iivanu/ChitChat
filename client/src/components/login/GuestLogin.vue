@@ -4,7 +4,7 @@
       <br />
       <br />
       <i class="glyphicon glyphicon-user"></i>
-      <input type="text" name="Username" placeholder="Username" v-model="username"/>
+      <input type="text" name="Username" placeholder="Username" v-model="username" />
       <br />
       <br />
       <br />
@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import AuthenticationService from "../../services/AuthenticationService";
+import AuthenticationService from "../../services/AuthenticationService.js";
 
 export default {
   name: "GuestLogin",
@@ -43,10 +43,8 @@ export default {
         this.$router.push({
           name: "chatroom"
         });
-        console.log('SUCCESS')
       } catch (error) {
-        console.log(error)
-        this.error = error.response.data.error;
+        alert(error.response.data.error);
       }
     }
   }

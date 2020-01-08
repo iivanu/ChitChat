@@ -3,16 +3,16 @@
     <form class="LoginAsUser">
       <br />
       <i class="glyphicon glyphicon-user"></i>
-      <input type="text" name="Username" placeholder="Username" />
+      <input type="text" name="Username" placeholder="Username" v-model="username" />
       <br />
       <br />
       <br />
       <i class="glyphicon glyphicon-info-sign"></i>
-      <input type="password" name="Password" placeholder="Password" />
+      <input type="password" name="Password" placeholder="Password" v-model="password" />
       <br />
       <br />
     </form>
-    <button id="loginb">Login</button>
+    <button v-on:click="login()" id="loginb">Login</button>
     <br />
     <br />
     <a id="forgot" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Forgot password?</a>
@@ -22,8 +22,37 @@
 </template>
 
 <script>
+import AuthenticationService from '../../services/AuthenticationService.js';
 export default {
-  name: "UserLogin"
+  name: "UserLogin",
+
+  data() {
+    return {
+      username: "",
+      password: ""
+    }
+  },
+
+  methods: {
+    async login() {
+      try {
+        const response = await AuthenticationService.login({
+          username: this.username,
+          password: this.password,
+          guest: false
+        });
+        this.$store.dispatch("setUser", response.data.user);
+        this.$store.dispatch("setToken", response.data.token);
+        this.$router.push({
+          name: "chatroom"
+        }); 
+        console.log("SUCCESS");
+      } catch(error) {
+        console.log(error);
+        this.error = error.response.data.error;
+      }
+    }
+  }
 };
 </script>
 
