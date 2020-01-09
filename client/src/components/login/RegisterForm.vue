@@ -18,6 +18,7 @@
       <button v-on:click="register()" type="button" id="registerb">Register</button>
       <br />
       <br />
+      <br />
     </form>
   </div>
 </template>
