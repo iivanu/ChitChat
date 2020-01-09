@@ -29,14 +29,16 @@ export default {
 <style scoped>
 .main {
   background-color: rgb(243, 243, 243);
-  margin: 0px auto;
 }
 
 .mainrect {
   box-shadow: 0px 0px 20px rgb(95, 92, 92);
   width: 60%;
   border-radius: 16px;
-  margin: 8% auto;
+  margin-top: 6%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10%;
   display: flex;
   flex-direction: row;
 }
@@ -44,7 +46,6 @@ export default {
 
 footer {
   font-family: "Montserrat", sans-serif;
-  margin-left: 35px;
   font-weight: bold;
 }
 </style>
