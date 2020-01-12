@@ -9,7 +9,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Npm install
+    - name: Npm install client
       run: |
         cd client
         npm install
@@ -17,3 +17,23 @@ jobs:
       run: |
         cd client
         npm run build
+    - name: Npm install server
+      run: |
+        cd server
+        npm install
+    - name: Check syntax server
+      run: | 
+        cd server/src
+        node --check app.js
+        node --check routes.js
+        cd config
+        node --check keys.js
+        node --check passport.js
+        cd ../controllers
+        node --check AuthenticationController.js
+        node --check ChatRoomController.js
+        node --check SocketController.js
+        cd ../models
+        node --check Room.js
+        node --check SocketUsers.js
+        node --check User.js
