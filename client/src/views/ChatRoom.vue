@@ -45,7 +45,7 @@ export default {
 
   created() {
     console.log("CREATED") // eslint-disable-line no-console
-    this.socket = io('http://localhost:3000/')
+    this.socket = io('http://172.21.8.241:3000/') //Change this to your local IP
   },
 
   mounted() {

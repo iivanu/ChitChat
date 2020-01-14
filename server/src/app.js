@@ -15,7 +15,7 @@ app.use(passport.session())
 require('./routes')(app)
 require('./config/passport')(passport)
 const server = require('http').Server(app)
-const io = require('socket.io')(server)
+const io = require('socket.io')(server, { origins: '*:*'})
 require('./controllers/SocketController')(io)
 
 const database = keys.mongoURI
