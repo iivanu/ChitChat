@@ -19,7 +19,7 @@ export default {
     return {
       // test values
       rooms: [
-        { name: "WorldChat", capacity:126},
+        { name: "WorldChat", capacity:40},
         { name: "Hrvatska", capacity:15},
         { name: "BiH", capacity:13},
         { name: "Gana", capacity:25 },
@@ -27,15 +27,11 @@ export default {
         { name: "USA", capacity:45},
         { name: "Gana", capacity:42},
         { name: "Nogomet", capacity:75},
-        { name: "košarka", capacity:234},
-        { name: "rukomet", capacity:123},
-        { name: "odbojka", capacity:64},
-        { name: "šah", capacity:64},
+        { name: "košarka", capacity:13},
+        { name: "rukomet", capacity:76},
+        { name: "šah", capacity:12},
         { name: "posao", capacity:114},
-        { name: "kuhanje", capacity:132},
         { name: "PC", capacity:255},
-        { name: "skijanje", capacity:123},
-        { name: "izbori", capacity:0}
       ]
     };
   },
