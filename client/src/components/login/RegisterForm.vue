@@ -48,7 +48,7 @@ export default {
         this.$store.dispatch('setUser',  response.data.user)
         this.$store.dispatch('setToken', response.data.token)
         this.$router.push({
-          name: ""
+          name: "choosearoom"
         });
         console.log("SUCCESS");
       } catch(error) {

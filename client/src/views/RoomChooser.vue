@@ -19,19 +19,19 @@ export default {
     return {
       // test values
       rooms: [
-        { name: "WorldChat", capacity:40},
-        { name: "Hrvatska", capacity:15},
-        { name: "BiH", capacity:13},
-        { name: "Gana", capacity:25 },
-        { name: "Šivcarska", capacity:53},
-        { name: "USA", capacity:45},
-        { name: "Gana", capacity:42},
-        { name: "Nogomet", capacity:75},
-        { name: "košarka", capacity:13},
-        { name: "rukomet", capacity:76},
-        { name: "šah", capacity:12},
-        { name: "posao", capacity:114},
-        { name: "PC", capacity:255},
+        { name: "WorldChat", id: "1", capacity:40 },
+        { name: "Hrvatska", id: "2", capacity:15},
+        { name: "BiH", id: "3", capacity:13},
+        { name: "Gana", id: "4", capacity:25 },
+        { name: "Šivcarska", id: "5", capacity:53},
+        { name: "USA", id: "6", capacity:45},
+        { name: "Gana", id: "7", capacity:42},
+        { name: "Nogomet", id: "8", capacity:75},
+        { name: "košarka", id: "9", capacity:13},
+        { name: "rukomet", id: "10", capacity:76},
+        { name: "šah", id: "11", capacity:12},
+        { name: "posao", id: "12", capacity:114},
+        { name: "PC", id: "13", capacity:255},
       ]
     };
   },
