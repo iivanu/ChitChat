@@ -2,7 +2,7 @@
   <div class="room-item">
     <div class ="name-and-capacity">
       <p>{{room.name}}</p>
-      <p>{{room.capacity}}</p>
+      <p>({{room.capacity}})</p>
     </div>
     <button v-on:click="joinRoom()" id="joinButton" ><b>JOIN</b></button>
   </div>
@@ -25,12 +25,12 @@ export default {
 
 <style scoped>
 .room-item {
-  background-color: #42b983;
-  width: 90%;
+  background-color: #2dd298;
+  width: 45%;
   display: flex;
   flex-direction: row;
   height: 3rem;
-  border-radius: 10px;
+  border-radius: 5px;
   margin: 6px;
   justify-content: space-between;
 }
@@ -41,7 +41,7 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  color: black;
+  color: darkslategrey;
 }
 
 .name-and-capacity p{
@@ -56,5 +56,7 @@ export default {
   background-color: transparent;
   width: 25%;
   outline: none; 
+  color:rgb(202, 30, 53);
+  font-size: 17px;
 }
 </style>
