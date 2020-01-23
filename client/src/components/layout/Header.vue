@@ -1,11 +1,11 @@
 <template>
-  <header class="header">
-    <h1>ChitChat</h1>
-    <div id="nav">
-      <router-link class="header-link" to="/choose-a-room">Choose a room</router-link>
-      <router-link class="header-link" to="/chat-room">Room</router-link>
-      <router-link class="header-link" to="/">Login</router-link>
+  <header class="header" v-if="this.$store.state.user != null">
+    <div id="leftContainer">
+      <router-link id="roomchooser" to="/choose-a-room" v-if="this.$store.state.user != null">Choose a room</router-link>
+      <router-link id="chatroom" to="/chat-room" v-if="this.$store.state.user != null">{{this.$store.state.room.name}}</router-link>
     </div>
+    <h2>ChitChat</h2>
+    <router-link id="logout" to="/" v-on:click.native="logout" v-if="this.$store.state.user != null">Logout</router-link>
   </header>
 </template>
 
@@ -14,34 +14,58 @@ export default {
   name: "Header",
 
   methods: {
-    logout () {
+    logout() {
+      console.log("logOut");
+      this.$router.push("/");
       this.$store.dispatch('setToken', null)
       this.$store.dispatch('setUser', null)
-      this.$router.push({
-        name: 'login'
-      })
     }
   },
 };
 </script>
 
 <style scoped>
-#nav {
-  padding: 0px;
+.header {
+  background-color: #e6edec;
+  margin-bottom: 10px;
+  display: flex;
 }
 
-#nav a {
+#leftContainer {
+  flex: 0.25;
+  padding-top: 16px;
+  display: flex;
+}
+
+#roomchooser {
+  flex: 0.5;
+}
+
+#chatroom {
+  flex: 0.5;
+}
+
+h2 {
+  padding: 0px;
+  padding-top: 2px;
+  display: inline;
+  margin: 10px auto;
+  flex: 0.5;
+}
+
+#logout {
+  flex: 0.25;
+  padding-top: 16px;
+}
+
+a {
   font-weight: bold;
   color: #2c3e50;
-  padding-right: 20px;
+  text-decoration: none;
 }
 
-#nav a.router-link-exact-active {
+a.router-link-exact-active {
   color: #42b983;
 }
 
-h1 {
-  margin-top: 2px;
-  padding: 8px;
-}
 </style>

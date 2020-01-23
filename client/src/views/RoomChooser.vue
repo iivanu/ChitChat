@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <RoomList class="rooms-list" v-bind:rooms="rooms" />
   </div>
 </template>

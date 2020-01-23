@@ -14,7 +14,6 @@ export default new Vuex.Store({
   state: {
     token: null,
     user: null,
-    isUserLoggedIn: false,
     room: { name: "WorldChat", id: "1", capacity: 40 } 
   },
   mutations: {
@@ -34,8 +33,10 @@ export default new Vuex.Store({
       commit('setToken', token)
     },
     setUser ({commit}, user) {
-      user.color = colors[Math.floor(Math.random() * colors.length)]
-      commit('setUser', user)
+      if (user != null) {
+        user.color = colors[Math.floor(Math.random() * colors.length)]
+      }
+    commit('setUser', user)
     },
     setRoom({commit}, room) {
       commit('setRoom', room)
