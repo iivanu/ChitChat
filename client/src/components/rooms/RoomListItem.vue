@@ -15,7 +15,8 @@ export default {
 
   methods: {
     joinRoom() {
-        this.$router.push("/chat-room");
+      this.$store.dispatch('setRoom', this.room)
+      this.$router.push("/chat-room");
        // console.log("SUCCESS");
     }
   }

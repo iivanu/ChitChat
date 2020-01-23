@@ -27,10 +27,7 @@ export default {
       socket: {},
       // Hardcoded test values
       user: this.$store.state.user,
-      room: {
-        name: "world chat",
-        id: "12345"
-      },
+      room: this.$store.state.room,
       messages: [],
       users: []
     };
@@ -45,6 +42,7 @@ export default {
 
   created() {
     console.log("CREATED") // eslint-disable-line no-console
+    console.log(this.room)
     this.socket = io('http://localhost:3000/')
   },
 

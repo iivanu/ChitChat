@@ -41,7 +41,7 @@ export default {
         this.$store.dispatch('setUser', response.data.user)
         this.$store.dispatch('setToken', response.data.token)
         this.$router.push({
-          name: "chatroom"
+          name: "choosearoom"
         });
       } catch (error) {
         alert(error.response.data.error);
