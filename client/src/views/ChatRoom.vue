@@ -42,7 +42,12 @@ export default {
 
   created() {
     console.log("CREATED") // eslint-disable-line no-console
-    console.log(this.room)
+    if (this.$store.state.user == null) {
+      this.$router.push("/")
+      this.$store.dispatch('setToken', null)
+      this.$store.dispatch('setUser', null)
+      return
+    }
     this.socket = io('http://localhost:3000/')
   },
 

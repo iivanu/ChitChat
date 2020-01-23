@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import createPersistedState from 'vuex-persistedstate'
+import * as Cookies from 'js-cookie'
+import VuexPersistence from 'vuex-persist'
+// TODO: implement state persistence on reload
 
 Vue.use(Vuex)
 
@@ -8,9 +11,6 @@ const colors = ["#b0e6ff", "#ffc2c2", "#ffdac2", "#ffefc2", "#edf0ad", "#e0f2aa"
 
 export default new Vuex.Store({
   strict: true,
-  plugins: [
-    createPersistedState()
-  ],
   state: {
     token: null,
     user: null,
@@ -19,7 +19,6 @@ export default new Vuex.Store({
   mutations: {
     setToken (state, token) {
       state.token = token
-      state.isUserLoggedIn = !!(token)
     },
     setUser (state, user) {
       state.user = user

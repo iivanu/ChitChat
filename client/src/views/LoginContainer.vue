@@ -11,7 +11,7 @@ export default {
   },
 
   created() {
-    if (this.$store.state.isUserLoggedIn) {
+    if (this.$store.state.user != null) {
       this.$router.push("/chat-room");
     }
   }

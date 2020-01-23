@@ -36,7 +36,13 @@ export default {
     };
   },
 
-  created() {}
+  created() {
+    if (this.$store.state.user == null) {
+      this.$router.push("/")
+      this.$store.dispatch('setToken', null)
+      this.$store.dispatch('setUser', null)
+    }
+  }
 };
 </script>
 

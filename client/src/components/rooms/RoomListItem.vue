@@ -57,7 +57,7 @@ export default {
   background-color: transparent;
   width: 25%;
   outline: none; 
-  color:rgb(202, 30, 53);
+  color: white;
   font-size: 17px;
 }
 </style>
