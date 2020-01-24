@@ -8,6 +8,12 @@ export default {
   name: "LoginContainer",
   components: {
     LoginForm
+  },
+
+  created() {
+    if (this.$store.state.user != null) {
+      this.$router.push("/chat-room");
+    }
   }
 };
 </script>

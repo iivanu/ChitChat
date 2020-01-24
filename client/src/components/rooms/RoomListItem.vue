@@ -15,7 +15,8 @@ export default {
 
   methods: {
     joinRoom() {
-        this.$router.push("/chat-room");
+      this.$store.dispatch('setRoom', this.room)
+      this.$router.push("/chat-room");
        // console.log("SUCCESS");
     }
   }
@@ -56,7 +57,7 @@ export default {
   background-color: transparent;
   width: 25%;
   outline: none; 
-  color:rgb(202, 30, 53);
+  color: white;
   font-size: 17px;
 }
 </style>

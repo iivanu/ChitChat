@@ -28,7 +28,6 @@ export default {
 
 <style scoped>
 .main {
-  background-color: rgb(243, 243, 243);
 }
 
 .mainrect {

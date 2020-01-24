@@ -27,10 +27,7 @@ export default {
       socket: {},
       // Hardcoded test values
       user: this.$store.state.user,
-      room: {
-        name: "world chat",
-        id: "12345"
-      },
+      room: this.$store.state.room,
       messages: [],
       users: []
     };
@@ -45,6 +42,12 @@ export default {
 
   created() {
     console.log("CREATED") // eslint-disable-line no-console
+    if (this.$store.state.user == null) {
+      this.$router.push("/")
+      this.$store.dispatch('setToken', null)
+      this.$store.dispatch('setUser', null)
+      return
+    }
     this.socket = io('http://localhost:3000/')
   },
 
@@ -82,6 +85,7 @@ export default {
   flex: 0.75;
   display: flex;
   flex-direction: column;
+  margin: 4px;
 }
 
 .messages-window {
@@ -102,7 +106,7 @@ export default {
 
 .users-list {
   flex: 0.2;
-  margin: 0 auto;
+  margin: 4px auto;
 
   border: 1px solid #2c3e50;
   padding: 2px 4px;
@@ -112,7 +116,7 @@ export default {
 }
 
 .container {
-  height: calc(100vh - 155px);
+  height: calc(100vh - 80px);
   display: flex;
   box-sizing: border-box;
 }
